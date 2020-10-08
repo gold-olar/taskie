@@ -33,7 +33,10 @@ app.use(
   "/api/taskie",
   authorizeRequest,
   createProxyMiddleware({
-    target: "http://tasks:3002",
+    target:
+      process.env.NODE_ENV === "development"
+        ? "http://tasks:3002"
+        : "https://taskie-tasks.herokuapp.com",
     changeOrigin: false,
   })
 );
