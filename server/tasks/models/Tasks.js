@@ -9,8 +9,7 @@ const taskSchema = new Schema({
   },
   description: {
     type: String,
-    required: true,
-    unique: true,
+    unique: false,
   },
   userId: {
     type: String,
@@ -18,7 +17,7 @@ const taskSchema = new Schema({
   },
   collectionId: {
     type: String,
-    required: false,
+    required: true,
   },
   createdAt: {
     type: Date,

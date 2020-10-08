@@ -8,9 +8,8 @@ class TaskController extends BaseController {
 
   async createTask(req, res) {
     const {
-      body: { title, description },
+      body: { title, description, collectionId },
       headers: { user },
-      params: { collectionId },
     } = req;
     const { userId } = JSON.parse(user);
     try {
@@ -39,7 +38,7 @@ class TaskController extends BaseController {
         params: { taskId },
       } = req;
 
-      const existingTask = Task.find({ _id: taskId });
+      const existingTask = await Task.findOne({ _id: taskId });
 
       if (!existingTask) {
         return super.sendError(res, null, "Task does not exist", 404);
@@ -58,7 +57,7 @@ class TaskController extends BaseController {
       } = req;
       const { userId } = JSON.parse(user);
 
-      const tasks = Task.find({ userId });
+      const tasks = await Task.find({ userId });
 
       if (!tasks) {
         return super.sendError(res, null, "You donot have any tasks", 404);

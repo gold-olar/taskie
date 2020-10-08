@@ -11,9 +11,9 @@ const router = Router();
 
 router.post("/create", validateTaskCreation, createTask);
 
-router.get("/:taskId", fetchTask);
-
 router.patch("/:taskId", updateTask);
+
+router.get("/:taskId", fetchTask);
 
 router.delete("/:taskId", deleteTask);
 

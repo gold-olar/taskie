@@ -30,8 +30,9 @@ app.use(cors());
 
 // Create Proxy and map requests to Tasks Servers
 app.use(
+  "/api/taskie",
   authorizeRequest,
-  createProxyMiddleware("/api/taskie", {
+  createProxyMiddleware({
     target: "http://tasks:3002",
     changeOrigin: false,
   })
@@ -42,17 +43,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, "public")));
-
 app.use("/api", indexRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
-
-app.use(express.static("../../client/build"));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
 
 app.use((_req, res) => {
   res.status(404).json({

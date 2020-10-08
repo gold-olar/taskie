@@ -1,6 +1,7 @@
 import React, { useState, Suspense } from "react";
 import { Container, Row } from "react-bootstrap";
 import DashboardContainer from "../../dashboard-components/DashboardContainer";
+import DashboardComponent from "../../dashboard-components/DashboardComponent";
 import PageLoader from "../../dashboard-components/PageLoader";
 import Sidebar from "../../dashboard-components/Sidebar";
 import { requireAuth, useAuth } from "../../util/auth";
@@ -37,7 +38,7 @@ const Dashboard = ({ mediaQuery }) => {
                 </Suspense>
               </Modal>
             )}
-            Dashboard Container
+            <DashboardComponent />
           </DashboardContainer>
         </Row>
       </Container>
