@@ -11,6 +11,7 @@ class ValidatorMiddleware extends BaseController {
       title: "required",
       description: "required",
       userId: "required",
+      collectionId: "required",
     };
 
     const validate = new Validator(req.body, rules);
@@ -29,7 +30,6 @@ class ValidatorMiddleware extends BaseController {
   async validateCollectionCreation(req, res, next) {
     const rules = {
       title: "required",
-      userId: "required",
     };
 
     const validate = new Validator(req.body, rules);

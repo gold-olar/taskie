@@ -19,7 +19,7 @@ class AuthorizerMiddleware extends BaseController {
       if (!decodedToken) {
         return super.sendError(res, null, "Unauthorized", 401);
       }
-      req.user = decodedToken;
+      req.headers.user = JSON.stringify(decodedToken);
 
       return next();
     } catch (err) {

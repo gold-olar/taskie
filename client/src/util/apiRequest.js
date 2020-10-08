@@ -26,7 +26,7 @@ export async function apiRequest(path, method = "GET", data, params) {
 
   try {
     const response = await axios({
-      url: `${"http://localhost:3001/api"}${path}`,
+      url: `${process.env.REACT_APP_API_BASEURL}${path}`,
       method,
       headers: {
         token: accessToken,

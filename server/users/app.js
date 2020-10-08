@@ -26,26 +26,27 @@ mongoose
   .then(() => console.log("Database Connected"))
   .catch((err) => console.log(err));
 
+app.use(cors());
+
+// Create Proxy and map requests to Tasks Servers
+app.use(
+  authorizeRequest,
+  createProxyMiddleware("/api/taskie", {
+    target: "http://tasks:3002",
+    changeOrigin: false,
+  })
+);
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cors());
 
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api", indexRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
-
-// Create Proxy and map requests to Tasks Servers
-app.use(
-  // authorizeRequest,
-  createProxyMiddleware("/api/tasks", {
-    target: "http://tasks:3002",
-    changeOrigin: false,
-  })
-);
 
 app.use((_req, res) => {
   res.status(404).json({

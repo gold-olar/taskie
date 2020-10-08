@@ -87,8 +87,10 @@ class AuthController extends BaseController {
   async getAuthUser(req, res) {
     try {
       const {
-        user: { userId },
+        headers: { user },
       } = req;
+      const { userId } = JSON.parse(user);
+
       const existingUser = await User.findOne({ _id: userId });
 
       if (!existingUser) {
