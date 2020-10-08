@@ -1,0 +1,23 @@
+@import "../../styles/global.scss";
+.navigation-bar {
+  background: none !important;
+  position: absolute;
+}
+.navigation-bar-logo {
+  margin-left: 100%;
+}
+.nav-link {
+  font-weight: 700;
+  color: map-get($light-theme, "blue") !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-link {
+    color: map-get($light-theme, "white") !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .navigation-bar-logo {
+    margin-left: 50%;
+  }
+}

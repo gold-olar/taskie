@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+$light-theme: (
+  "blue": #3777ff,
+  "white": #ffffff,
+  "black": #000,
+  "grey": #ccc,
+);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background-color: #fff;
+  color: #555;
+  font-family: "Lato", "Arial", sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+.box {
+  padding: 1%;
+}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.is-clickable {
+  cursor: pointer;
+}
+
+// TEXT
+$font-family-sans-serif: "Lato", sans-serif;
+$font-family-serif: Georgia, "Times New Roman", Times, serif;
+$font-family-base: $font-family-sans-serif;
+$font-size-base: 1rem;
+
+// IMPORT BOOTSTRAP
+@import "~bootstrap/scss/bootstrap";
+@import "~react-toastify/dist/ReactToastify.css";
+
+// Import Special component styles
+@import "./components/buttons.scss";
+@import "./components/toast.scss";
+@import "./components/random.scss";
+
+#root {
+  // Full height of screen and flex so that we can push footer
+  // to the bottom even if content is shorter than screen
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // Push footer to the bottom of the screen
+  > .footer {
+    margin-top: auto;
+  }
+  // Prevent child elements from shrinking when content
+  // is taller than the screen (quirk of having flex parent)
+  > * {
+    flex-shrink: 0;
+  }
+}
+body {
+  background: #fff !important;
+  font-family: $font-family-sans-serif;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none !important;
+}

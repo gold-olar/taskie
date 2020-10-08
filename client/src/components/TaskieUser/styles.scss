@@ -1,0 +1,22 @@
+.taskie-user {
+  flex: 1;
+  width: 200px;
+  height: auto;
+  margin: 2%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 150px;
+    margin: auto;
+    display: block;
+    border-radius: 100%;
+    filter: grayscale(1);
+  }
+  span {
+    font-weight: 600;
+    font-size: 60%;
+    display: block;
+    margin-top: 5%;
+  }
+}

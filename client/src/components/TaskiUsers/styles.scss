@@ -1,0 +1,45 @@
+@import "../../styles/global.scss";
+
+.taskie-users-section__card {
+  border-radius: 15px;
+  margin-top: -5%;
+  padding: 5%;
+  height: auto;
+
+  div {
+    display: flex;
+    margin-top: 3%;
+    // flex-direction: row;
+  }
+  h4 {
+    display: block;
+    color: map-get($light-theme, "blue");
+    text-align: center;
+    font-size: 100%;
+    // text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 400;
+  }
+  //   h4:after {
+  //     display: block;
+  //     height: 2px;
+  //     background-color: map-get($light-theme, "blue");
+  //     width: 100px;
+  //     content: " ";
+  //     margin: 0 auto;
+  //     margin-top: 20px;
+  //   }
+}
+
+@media screen and (max-width: 500px) {
+  .taskie-users-section__card {
+    div {
+      flex-direction: column;
+      margin: auto;
+      padding-top: 5%;
+    }
+    h4 {
+      margin-bottom: 10%;
+    }
+  }
+}

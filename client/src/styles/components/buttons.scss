@@ -1,0 +1,27 @@
+.white_btn_outline {
+  border: 2px solid #fff;
+  background: none;
+  color: #fff;
+  &:hover {
+    background: none;
+    border: 2px solid #fff;
+    transition: all 0.3s;
+  }
+  &:active,
+  &:focus {
+    background: none !important;
+    border: 2px solid #fff;
+    transition: all 0.3s;
+  }
+}
+.btn {
+  border-radius: 15px;
+}
+.btn-primary {
+  background: #3777ff;
+  &:hover {
+    background: darken($color: #3777ff, $amount: 3);
+  }
+  font-weight: 900;
+  text-transform: uppercase;
+}

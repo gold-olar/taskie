@@ -1,0 +1,14 @@
+@import "../../styles/global.scss";
+.sidebar {
+  width: 100%;
+  padding: 0% !important;
+  height: 100vh !important;
+}
+
+.sidebar-top-logo {
+  letter-spacing: 3px;
+  font-weight: 900;
+  font-size: 80%;
+  padding: 10%;
+  border-bottom: 2px solid map-get($light-theme, "grey");
+}

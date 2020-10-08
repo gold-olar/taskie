@@ -1,0 +1,52 @@
+@import "../../styles/global.scss";
+
+.hero-section {
+  background: url("../../assets/images/header-bg.png");
+  background-size: cover;
+  height: 80vh;
+  position: relative;
+}
+.hero-section__text {
+  position: absolute;
+  width: 40%;
+  top: 30%;
+  h1 {
+    color: map-get($light-theme, $key: "white");
+    font-weight: 900;
+    margin-bottom: 5%;
+  }
+}
+.hero-section__cta-btn {
+  text-transform: uppercase;
+  font-weight: 900 !important;
+}
+.hero-section__image {
+  width: 40%;
+  height: auto;
+  position: absolute;
+  right: 0%;
+  top: 20%;
+}
+@media screen and (max-width: 1024px) {
+  .hero-section__image {
+    top: 30%;
+  }
+  .hero-section {
+    height: 75vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .hero-section__image {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .hero-section__text {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 330px) {
+  .hero-section {
+    height: 95vh;
+  }
+}
