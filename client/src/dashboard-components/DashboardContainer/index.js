@@ -10,7 +10,7 @@ const DashboardContainer = ({ children, mediaQuery, logout }) => {
         className="mt-3 p-2"
         md={{
           span: mediaQuery === "isDesktop" ? 9 : 12,
-          //   offset: mediaQuery === "isDesktop" ? 3 : 0,
+          offset: mediaQuery === "isDesktop" ? 3 : 0,
         }}
       >
         <TopNav logout={logout} />

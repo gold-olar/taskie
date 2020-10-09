@@ -1,3 +1,31 @@
 .task {
   display: flex;
+  padding: 1% 0%;
+  border-bottom: 2px solid grey;
+  span {
+    flex: 1;
+  }
+  div {
+    flex: 4;
+    font-size: 90%;
+    p {
+      font-weight: 600;
+    }
+    span {
+      font-weight: 300;
+      font-size: 90%;
+    }
+  }
+  button {
+    flex: 1;
+  }
+}
+.task__status-icon {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  &:hover {
+    transform: rotate(-20deg);
+    transition: all 0.4s;
+  }
 }
