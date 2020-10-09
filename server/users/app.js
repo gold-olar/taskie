@@ -34,7 +34,7 @@ app.use(
   authorizeRequest,
   createProxyMiddleware({
     target:
-      process.env.NODE_ENV === "development"
+      process.env.NODE_ENV !== "production"
         ? "http://tasks:3002"
         : "https://taskie-tasks.herokuapp.com",
     changeOrigin: false,
