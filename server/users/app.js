@@ -46,9 +46,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/api", indexRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
 
 app.use((_req, res) => {
   res.status(404).json({
