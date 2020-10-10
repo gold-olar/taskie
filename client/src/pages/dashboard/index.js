@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState, Suspense, useEffect, useContext } from "react";
 import { Container, Row } from "react-bootstrap";
 import DashboardContainer from "../../dashboard-components/DashboardContainer";
 import DashboardComponent from "../../dashboard-components/DashboardComponent";
@@ -6,6 +6,7 @@ import PageLoader from "../../dashboard-components/PageLoader";
 import Sidebar from "../../dashboard-components/Sidebar";
 import { requireAuth, useAuth } from "../../util/auth";
 import Modal from "../../dashboard-components/Modal";
+import { Context as CollectionsContext } from "../../context/collectionsContext";
 import allModals from "./helper";
 import { toast } from "react-toastify";
 
@@ -27,16 +28,34 @@ const Dashboard = ({ mediaQuery }) => {
 
   const auth = useAuth();
 
+  const {
+    fetchAllCollections,
+    state: { collections },
+  } = useContext(CollectionsContext);
+
+  const recentCollectionId = localStorage.getItem("recentCollectionId");
+
+  fetchAllCollections();
+
+  const [collection, setCollection] = useState(recentCollectionId);
+
+  useEffect(() => {
+    !recentCollectionId && setCollection(collections[0]?._id);
+  }, [collections]);
+
   return (
     <>
       <Container fluid>
         <Row>
           {showSideBar && (
             <Sidebar
+              currentCollection={collection}
               setShowModal={setShowModal}
               userData={auth.user}
               setShowSideBar={setShowSideBar}
               mediaQuery={mediaQuery}
+              collections={collections}
+              setCollection={setCollection}
             />
           )}
 
@@ -60,6 +79,8 @@ const Dashboard = ({ mediaQuery }) => {
               <DashboardComponent
                 setShowModal={setShowModal}
                 mediaQuery={mediaQuery}
+                collection={collection}
+                collections={collections}
               />
             </DashboardContainer>
           ) : null}

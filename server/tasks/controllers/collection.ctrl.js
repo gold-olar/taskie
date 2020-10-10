@@ -55,7 +55,7 @@ class CollectionController extends BaseController {
           collections: usersCollections,
         },
         "Fetched Collections !",
-        201
+        200
       );
     } catch (err) {
       return super.sendError(res, err, err.message, err.code);

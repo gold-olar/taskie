@@ -7,6 +7,7 @@ import AuthPage from "../auth";
 import useMedia from "../../util/useQuery";
 import { queryValues, queries } from "../../util/constants";
 import { ProvideAuth } from "./../../util/auth";
+import ContextProvider from "../../context/ContextProviders";
 
 function App() {
   const mediaQuery = useMedia(queries, queryValues, "isDesktop");
@@ -14,28 +15,28 @@ function App() {
   return (
     <>
       <ProvideAuth>
-        {/* <ContextProvider> */}
-        <Router>
-          <>
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={() => <HomePage mediaQuery={mediaQuery} />}
-              />
+        <ContextProvider>
+          <Router>
+            <>
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={() => <HomePage mediaQuery={mediaQuery} />}
+                />
 
-              <Route exact path="/user/:authType" component={AuthPage} />
+                <Route exact path="/user/:authType" component={AuthPage} />
 
-              <Route
-                path="/dashboard"
-                render={() => <Dashboard mediaQuery={mediaQuery} />}
-              />
+                <Route
+                  path="/dashboard"
+                  render={() => <Dashboard mediaQuery={mediaQuery} />}
+                />
 
-              <Route component={NotFoundPage} />
-            </Switch>
-          </>
-        </Router>
-        {/* </ContextProvider> */}
+                <Route component={NotFoundPage} />
+              </Switch>
+            </>
+          </Router>
+        </ContextProvider>
       </ProvideAuth>
     </>
   );

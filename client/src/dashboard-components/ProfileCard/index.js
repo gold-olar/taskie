@@ -3,12 +3,16 @@ import { ProgressBar, Button } from "react-bootstrap";
 import image from "../../assets/images/default-avatar.png";
 import "./styles.scss";
 import { taskStats, EDIT_PROFILE, ADD_TASK } from "../../util/constants";
+import CollectionsSection from "../CollectionsSection";
 
 const ProfileCard = ({
   setShowSideBar,
   mediaQuery,
   setShowModal,
   userData,
+  setCollection,
+  collections,
+  currentCollection,
 }) => {
   const { firstName, lastName, email } = userData;
   return (
@@ -18,7 +22,6 @@ const ProfileCard = ({
           <img className="profile-card__img" src={image} alt="User" />
           <div className="text-center profile-card__profile-text">
             <span>
-              {" "}
               {firstName} {lastName}
             </span>
             <span className="text-muted"> {email} </span>
@@ -57,6 +60,17 @@ const ProfileCard = ({
               </div>
             ))}
           </div>
+        </div>
+        <div className="collections-section">
+          <CollectionsSection
+            currentCollection={currentCollection}
+            setShowModal={setShowModal}
+            setShowSideBar={setShowSideBar}
+            collections={collections}
+            userData={userData}
+            mediaQuery={mediaQuery}
+            setCollection={setCollection}
+          />
         </div>
         <div className="dashboard-cta-section">
           <Button

@@ -3,7 +3,7 @@ import "./styles.scss";
 import editIcon from "../../../assets/icons/edit.png";
 import deleteIcon from "../../../assets/icons/delete.png";
 import { EDIT_TASK } from "../../../util/constants";
-import { Badge } from "react-bootstrap";
+import { Badge, Button } from "react-bootstrap";
 
 const ViewTask = ({ setShowModal, data }) => {
   const { task, handleDeleteTask } = data;
@@ -38,6 +38,14 @@ const ViewTask = ({ setShowModal, data }) => {
           {" "}
           {task.completed ? "Complete" : "Pending"}{" "}
         </Badge>
+      </div>
+      <div className="task__body">
+        <h6 className="task__title">{task.title} </h6>
+        <p className="task__description">{task.description} </p>
+        <Button className="btn-block" variant="primary">
+          {" "}
+          {task.completed ? "Mark as Pending" : "Mark as Completed"}{" "}
+        </Button>
       </div>
     </section>
   );

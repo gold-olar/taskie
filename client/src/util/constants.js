@@ -30,3 +30,4 @@ export const EDIT_PROFILE = "EDIT_PROFILE";
 export const ADD_TASK = "ADD_TASK";
 export const VIEW_TASK = "VIEW_TASK";
 export const EDIT_TASK = "ADD_TASK";
+export const ADD_COLECTION = "ADD_COLECTION";
