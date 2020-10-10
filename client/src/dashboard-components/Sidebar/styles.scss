@@ -1,6 +1,7 @@
 @import "../../styles/global.scss";
 .sidebar {
   width: 100%;
+  z-index: 2;
   padding: 0% !important;
   height: 100vh !important;
   position: absolute !important;
@@ -12,4 +13,11 @@
   font-size: 80%;
   padding: 10%;
   border-bottom: 2px solid map-get($light-theme, "grey");
+}
+.sidebar-__close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: auto;
 }

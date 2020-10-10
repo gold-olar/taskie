@@ -1,0 +1,9 @@
+@import "../../styles/global.scss";
+.dashboard-nav-link {
+  font-weight: 700;
+  color: map-get($light-theme, "blue");
+}
+.top-nav-image {
+  width: 30px;
+  height: auto;
+}

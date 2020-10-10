@@ -59,7 +59,7 @@ const AddTask = ({ setShowModal, data }) => {
           disabled={loading}
           className="mt-4"
         >
-          {!loading && <span>Add task</span>}
+          {!loading && <span> {editTask ? "Edit Task" : "Add Task "}</span>}
 
           {loading && (
             <Spinner

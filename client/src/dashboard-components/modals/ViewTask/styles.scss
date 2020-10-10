@@ -1,0 +1,13 @@
+.task-details-section {
+  position: relative;
+}
+.edit-task-icon-section {
+  position: absolute;
+  display: flex;
+  top: -5px;
+  right: 0px;
+  img {
+    flex: 1;
+    margin-right: 10%;
+  }
+}

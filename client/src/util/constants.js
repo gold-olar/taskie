@@ -28,3 +28,5 @@ export const taskStats = ["Total Tasks", "Completed Tasks", "Pending Tasks"];
 
 export const EDIT_PROFILE = "EDIT_PROFILE";
 export const ADD_TASK = "ADD_TASK";
+export const VIEW_TASK = "VIEW_TASK";
+export const EDIT_TASK = "ADD_TASK";

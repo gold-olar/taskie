@@ -3,7 +3,12 @@ import { Col } from "react-bootstrap";
 
 import TopNav from "../TopNav";
 
-const DashboardContainer = ({ children, mediaQuery, logout }) => {
+const DashboardContainer = ({
+  children,
+  mediaQuery,
+  logout,
+  setShowSideBar,
+}) => {
   return (
     <>
       <Col
@@ -13,7 +18,11 @@ const DashboardContainer = ({ children, mediaQuery, logout }) => {
           offset: mediaQuery === "isDesktop" ? 3 : 0,
         }}
       >
-        <TopNav logout={logout} />
+        <TopNav
+          setShowSideBar={setShowSideBar}
+          mediaQuery={mediaQuery}
+          logout={logout}
+        />
         {children}
       </Col>
     </>
