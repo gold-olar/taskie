@@ -26,11 +26,16 @@ class CollectionController extends BaseController {
       };
 
       const newCollection = new Collection(collectionParams);
-      newCollection
-        .save()
-        .then((user) =>
-          super.sendSuccess(res, newCollection, "Collection Created !", 201)
-        );
+      newCollection.save().then(() =>
+        super.sendSuccess(
+          res,
+          {
+            collection: newCollection,
+          },
+          "Collection Created !",
+          201
+        )
+      );
     } catch (err) {
       return super.sendError(res, err, err.message, err.code);
     }

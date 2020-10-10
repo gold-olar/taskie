@@ -1,11 +1,19 @@
 import { apiRequest } from "../apiRequest";
 
 const createATask = (taskData) => {
-  return apiRequest("/taskie/task/create", "POST", taskData);
+  return apiRequest("/taskie/tasks/create", "POST", taskData);
 };
 
 const editATask = (taskData) => {
-  return apiRequest("/taskie/task", "PATCH", taskData);
+  return apiRequest(`/taskie/tasks/${taskData._id}`, "PATCH", taskData);
 };
 
-export { createATask, editATask };
+const deleteATask = (taskData) => {
+  return apiRequest(`/taskie/tasks/${taskData._id}`, "DELETE");
+};
+
+const fetchTasks = () => {
+  return apiRequest("/taskie/tasks", "GET");
+};
+
+export { createATask, editATask, fetchTasks, deleteATask };

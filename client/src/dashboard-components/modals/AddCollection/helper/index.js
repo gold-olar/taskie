@@ -12,7 +12,7 @@ export const handleCollectionCreation = async (
   const response = await createACollection(formData);
   response && setLoading(false);
   response && notifyUser(response);
-  if (response.status) {
+  if (response && response.status) {
     addNewCollection(response.data);
     return setShowModal({
       show: false,

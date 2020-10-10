@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Col, Spinner } from "react-bootstrap";
 import completedIcon from "../../assets/icons/completed.png";
 import pendingIcon from "../../assets/icons/pending.png";
@@ -6,16 +6,26 @@ import "./styles.scss";
 import editIcon from "../../assets/icons/edit.png";
 import deleteIcon from "../../assets/icons/delete.png";
 import { VIEW_TASK, EDIT_TASK } from "../../util/constants";
+import { Context as TaskContext } from "../../context/tasksContext";
 
-const SingleTask = ({ task, setShowModal, handleDeleteTask }) => {
+const SingleTask = ({
+  task,
+  setShowModal,
+  handleDeleteTask,
+  handleMarkingTasks,
+}) => {
   const { completed, description, title } = task;
   const [loading, setLoading] = useState(false);
+
+  const { removeTaskFromTaskList, editATask } = useContext(TaskContext);
+
   return (
     <Col md={12}>
       <div className="task">
         <span>
           <img
             className="task__status-icon"
+            onClick={() => handleMarkingTasks(task, setLoading, editATask)}
             src={completed ? completedIcon : pendingIcon}
             alt="Task Status Icon"
           />
@@ -71,7 +81,9 @@ const SingleTask = ({ task, setShowModal, handleDeleteTask }) => {
           />
 
           <img
-            onClick={() => handleDeleteTask(task, setLoading)}
+            onClick={() =>
+              handleDeleteTask(task, setLoading, removeTaskFromTaskList)
+            }
             src={deleteIcon}
             className="action-icon"
             alt="Delete Icon"

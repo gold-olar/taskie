@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FormGroup, Button, Spinner } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { handleTasks } from "./helper";
+import { Context as TasksContext } from "../../../context/tasksContext";
 
 const AddTask = ({ setShowModal, data }) => {
   const { register, handleSubmit, errors } = useForm();
   const [loading, setLoading] = useState(false);
-  const { editTask = false, taskData = {} } = data;
+  const { editTask = false, taskData = {}, currentCollection } = data;
+
+  const { addNewTask, editATask } = useContext(TasksContext);
 
   const submit = (formData) => {
-    return handleTasks(formData, editTask, taskData, setLoading, setShowModal);
+    return handleTasks(
+      { ...formData, collectionId: currentCollection },
+      editTask,
+      taskData,
+      setLoading,
+      setShowModal,
+      addNewTask,
+      editATask
+    );
   };
 
   return (

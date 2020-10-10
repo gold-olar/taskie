@@ -6,7 +6,9 @@ export const handleTasks = async (
   editTask,
   taskData = {},
   setLoading,
-  setShowModal
+  setShowModal,
+  addNewTask,
+  edit
 ) => {
   setLoading(true);
   const newTaskData = {
@@ -18,7 +20,8 @@ export const handleTasks = async (
     : await createATask(newTaskData);
   response && setLoading(false);
   response && notifyUser(response);
-  if (response.status) {
+  if (response && response.status) {
+    editTask ? edit(response.data) : addNewTask(response.data);
     return setShowModal({
       show: false,
     });

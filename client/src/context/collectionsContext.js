@@ -16,7 +16,7 @@ const reducer = (state, action) => {
 };
 
 const addNewCollection = (dispatch) => (colectionData) => {
-  dispatch({ type: "ADD_NEW_COLLECTION", payload: colectionData });
+  dispatch({ type: "ADD_NEW_COLLECTION", payload: colectionData.collection });
 };
 
 const fetchAllCollections = (dispatch) => async () => {

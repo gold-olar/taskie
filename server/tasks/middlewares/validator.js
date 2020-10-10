@@ -10,7 +10,6 @@ class ValidatorMiddleware extends BaseController {
     const rules = {
       title: "required",
       description: "required",
-      userId: "required",
       collectionId: "required",
     };
 

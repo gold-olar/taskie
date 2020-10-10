@@ -1,21 +1,44 @@
 import React from "react";
 import "./styles.scss";
 import SingleTask from "../SingleTask";
-import { Row } from "react-bootstrap";
-import { sampleTasks, handleDeleteTask } from "./helper";
+import { Col, Row } from "react-bootstrap";
+import { handleMarkingTasks, handleDeleteTask } from "./helper";
+import { ADD_TASK } from "../../util/constants";
 
-const TaskList = ({ setShowModal }) => {
+const TaskList = ({ setShowModal, currentTasks, currentCollection }) => {
   return (
     <section className="task-list-section ">
       <Row>
-        {sampleTasks.map((task) => (
-          <SingleTask
-            setShowModal={setShowModal}
-            handleDeleteTask={handleDeleteTask}
-            task={task}
-            key={task.id}
-          />
-        ))}
+        {currentTasks && currentTasks.length === 0 ? (
+          <Col>
+            <p
+              onClick={() => {
+                return setShowModal({
+                  show: true,
+                  modalId: ADD_TASK,
+                  data: {
+                    currentCollection,
+                  },
+                });
+              }}
+              className="task-list-section__get-started"
+            >
+              No tasks in this collection yet ! Create a task now !
+            </p>
+          </Col>
+        ) : (
+          <>
+            {currentTasks.map((task) => (
+              <SingleTask
+                setShowModal={setShowModal}
+                handleDeleteTask={handleDeleteTask}
+                handleMarkingTasks={handleMarkingTasks}
+                task={task}
+                key={task._id}
+              />
+            ))}
+          </>
+        )}
       </Row>
     </section>
   );

@@ -79,7 +79,9 @@ const ProfileCard = ({
               return setShowModal({
                 show: true,
                 modalId: ADD_TASK,
-                data: {},
+                data: {
+                  currentCollection,
+                },
               });
             }}
             variant="primary"

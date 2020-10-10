@@ -7,6 +7,7 @@ import Sidebar from "../../dashboard-components/Sidebar";
 import { requireAuth, useAuth } from "../../util/auth";
 import Modal from "../../dashboard-components/Modal";
 import { Context as CollectionsContext } from "../../context/collectionsContext";
+import { Context as TasksContext } from "../../context/tasksContext";
 import allModals from "./helper";
 import { toast } from "react-toastify";
 
@@ -33,9 +34,15 @@ const Dashboard = ({ mediaQuery }) => {
     state: { collections },
   } = useContext(CollectionsContext);
 
+  const {
+    fetchAllTasks,
+    state: { tasks },
+  } = useContext(TasksContext);
+
   const recentCollectionId = localStorage.getItem("recentCollectionId");
 
   fetchAllCollections();
+  fetchAllTasks();
 
   const [collection, setCollection] = useState(recentCollectionId);
 
@@ -81,6 +88,7 @@ const Dashboard = ({ mediaQuery }) => {
                 mediaQuery={mediaQuery}
                 collection={collection}
                 collections={collections}
+                tasks={tasks}
               />
             </DashboardContainer>
           ) : null}

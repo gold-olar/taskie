@@ -109,7 +109,7 @@ class TaskController extends BaseController {
         body,
       } = req;
       const task = await Task.findOneAndUpdate({ _id: taskId }, body, {
-        upsert: true,
+        new: true,
       });
 
       if (!task) {
