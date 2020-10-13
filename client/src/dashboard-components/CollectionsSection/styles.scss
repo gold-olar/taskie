@@ -55,4 +55,7 @@
 }
 .current-collection {
   font-weight: 900;
+  &::before {
+    background: map-get($light-theme, "blue") !important;
+  }
 }

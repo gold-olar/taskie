@@ -12,6 +12,7 @@ const DashboardComponent = ({
   collection,
   collections,
   tasks,
+  userData,
 }) => {
   const [currentCollection, setCurrentColection] = useState({});
   const [currentTasks, setCurrentTasks] = useState([]);
@@ -26,6 +27,8 @@ const DashboardComponent = ({
       <DashboardHeader
         currentCollection={currentCollection}
         mediaQuery={mediaQuery}
+        userData={userData}
+        setShowModal={setShowModal}
       />
       {collection && (
         <TaskList

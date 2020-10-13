@@ -88,6 +88,7 @@ const Dashboard = ({ mediaQuery }) => {
                 mediaQuery={mediaQuery}
                 collection={collection}
                 collections={collections}
+                userData={auth.user}
                 tasks={tasks}
               />
             </DashboardContainer>

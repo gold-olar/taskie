@@ -6,6 +6,6 @@ const router = Router();
 
 router.get("/:userId", getUser);
 
-router.delete("/:userId", authorizeRequest, deleteUser);
+router.delete("/:userId", deleteUser);
 
 module.exports = router;

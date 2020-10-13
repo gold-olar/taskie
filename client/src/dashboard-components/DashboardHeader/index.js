@@ -1,7 +1,13 @@
 import React from "react";
+import { ADD_COLECTION } from "../../util/constants";
 import "./styles.scss";
 
-const DashboardHeader = ({ mediaQuery, currentCollection }) => {
+const DashboardHeader = ({
+  mediaQuery,
+  setShowModal,
+  currentCollection,
+  userData,
+}) => {
   return (
     <>
       <div
@@ -10,7 +16,20 @@ const DashboardHeader = ({ mediaQuery, currentCollection }) => {
         } dashboard-header-section`}
       >
         <h5 className="text-muted"> {currentCollection?.title}</h5>
-        <span> add Task</span>
+        <span
+          onClick={() => {
+            return setShowModal({
+              show: true,
+              modalId: ADD_COLECTION,
+              data: {
+                user: userData,
+              },
+            });
+          }}
+        >
+          {" "}
+          + Add Collection{" "}
+        </span>
       </div>
     </>
   );

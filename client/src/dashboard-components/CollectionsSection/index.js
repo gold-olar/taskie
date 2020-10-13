@@ -56,7 +56,10 @@ const CollectionsSection = ({
                   currentCollection === collection._id && "current-collection"
                 }`}
                 key={collection._id}
-                onClick={() => setCollection(collection._id)}
+                onClick={() => {
+                  localStorage.setItem("recentCollectionId", collection._id);
+                  return setCollection(collection._id);
+                }}
               >
                 {collection.title}{" "}
               </li>
