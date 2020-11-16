@@ -19,8 +19,6 @@ logRequests();
 export async function apiRequest(path, method = "GET", data, params) {
   const accessToken = localStorage.getItem("token");
 
-  // console.log(accessToken);
-
   const { CancelToken } = axios;
   const source = CancelToken.source();
 
@@ -48,7 +46,6 @@ export async function apiRequest(path, method = "GET", data, params) {
       };
     }
   } catch (err) {
-    // console.log(err.response);
     return {
       status: false,
       message: err.response ? err.response.data.message : err.message,

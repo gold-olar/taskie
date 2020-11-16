@@ -1,0 +1,2 @@
+(this.webpackJsonpclient=this.webpackJsonpclient||[]).push([[6],{158:function(e,t,a){"use strict";a.r(t);var n=a(0),c=a.n(n);t.default=function(e){e.data,e.setShowModal;return c.a.createElement(c.a.Fragment,null,c.a.createElement("h5",{className:"text-center mb-3"},"Edit Profile"),c.a.createElement("p",{className:"text-muted text-center p-5"},"Feature coming soon"))}}}]);
+//# sourceMappingURL=6.da6834de.chunk.js.map
