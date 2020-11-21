@@ -6,7 +6,10 @@ import { EDIT_TASK } from "../../../util/constants";
 import { Badge, Button } from "react-bootstrap";
 
 const ViewTask = ({ setShowModal, data }) => {
-  const { task, handleDeleteTask } = data;
+  const {
+    task,
+    // handleDeleteTask
+  } = data;
   return (
     <section className="task-details-section">
       <span className="edit-task-icon-section">

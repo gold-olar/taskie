@@ -25,7 +25,7 @@ const fetchAllCollections = (dispatch) => async () => {
     !status && notifyUser({ status, message });
 
     data && dispatch({ type: "FETCH_COLLECTIONS_SUCCESSFULLY", payload: data });
-  }, [data, status]);
+  }, [data, status, message]);
 };
 
 export const { Context, Provider } = createDataContext(

@@ -48,6 +48,7 @@ const Dashboard = ({ mediaQuery }) => {
 
   useEffect(() => {
     !recentCollectionId && setCollection(collections[0]?._id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [collections]);
 
   return (

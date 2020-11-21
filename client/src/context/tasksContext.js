@@ -47,7 +47,7 @@ const fetchAllTasks = (dispatch) => async () => {
     !status && notifyUser({ status, message });
 
     data && dispatch({ type: "FETCH_TASKS_SUCCESFULLY", payload: data });
-  }, [data, status]);
+  }, [data, status, message]);
 };
 
 export const { Context, Provider } = createDataContext(
