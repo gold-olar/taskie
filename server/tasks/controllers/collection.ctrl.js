@@ -25,17 +25,19 @@ class CollectionController extends BaseController {
         userId,
       };
 
+      console.log("jerry peperenpe");
       const newCollection = new Collection(collectionParams);
-      newCollection.save().then(() =>
+      newCollection.save().then((collection) => {
+        console.log(collection);
         super.sendSuccess(
           res,
           {
-            collection: newCollection,
+            collection,
           },
           "Collection Created !",
           201
-        )
-      );
+        );
+      });
     } catch (err) {
       return super.sendError(res, err, err.message, err.code);
     }
