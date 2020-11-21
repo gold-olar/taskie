@@ -37,7 +37,7 @@ app.use(
       process.env.NODE_ENV !== "production"
         ? "http://tasks:3002"
         : "https://taskie-tasks.herokuapp.com",
-    changeOrigin: false,
+    changeOrigin: true,
   })
 );
 

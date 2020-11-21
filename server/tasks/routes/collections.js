@@ -11,7 +11,15 @@ const router = Router();
 
 router.get("/", fetchCollections);
 
-router.post("/create", validateCollectionCreation, createCollection);
+router.post(
+  "/create",
+  (req, res, next) => {
+    console.log("E call this shit");
+    next();
+  },
+  validateCollectionCreation,
+  createCollection
+);
 
 router.delete("/:collectionId", deleteCollection, deleteTasksInCollection);
 
